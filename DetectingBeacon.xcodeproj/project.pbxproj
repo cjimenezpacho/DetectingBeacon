@@ -10,10 +10,10 @@
 		64D96EAD1C48DC2300DD64DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D96EAC1C48DC2300DD64DB /* main.m */; };
 		64D96EB01C48DC2300DD64DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D96EAF1C48DC2300DD64DB /* AppDelegate.m */; };
 		64D96EB31C48DC2300DD64DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D96EB21C48DC2300DD64DB /* ViewController.m */; };
-		64D96EB61C48DC2300DD64DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D96EB41C48DC2300DD64DB /* Main.storyboard */; };
 		64D96EB81C48DC2300DD64DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64D96EB71C48DC2300DD64DB /* Assets.xcassets */; };
 		64D96EBB1C48DC2300DD64DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D96EB91C48DC2300DD64DB /* LaunchScreen.storyboard */; };
 		64D96EC61C48DC2300DD64DB /* DetectingBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D96EC51C48DC2300DD64DB /* DetectingBeaconTests.m */; };
+		64D96ED11C48FD7100DD64DB /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D96ED01C48FD7100DD64DB /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,13 +33,13 @@
 		64D96EAF1C48DC2300DD64DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		64D96EB11C48DC2300DD64DB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		64D96EB21C48DC2300DD64DB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		64D96EB51C48DC2300DD64DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		64D96EB71C48DC2300DD64DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64D96EBA1C48DC2300DD64DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64D96EBC1C48DC2300DD64DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64D96EC11C48DC2300DD64DB /* DetectingBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DetectingBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D96EC51C48DC2300DD64DB /* DetectingBeaconTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetectingBeaconTests.m; sourceTree = "<group>"; };
 		64D96EC71C48DC2300DD64DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64D96ED01C48FD7100DD64DB /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 				64D96EAF1C48DC2300DD64DB /* AppDelegate.m */,
 				64D96EB11C48DC2300DD64DB /* ViewController.h */,
 				64D96EB21C48DC2300DD64DB /* ViewController.m */,
-				64D96EB41C48DC2300DD64DB /* Main.storyboard */,
+				64D96ED01C48FD7100DD64DB /* ViewController.xib */,
 				64D96EB71C48DC2300DD64DB /* Assets.xcassets */,
 				64D96EB91C48DC2300DD64DB /* LaunchScreen.storyboard */,
 				64D96EBC1C48DC2300DD64DB /* Info.plist */,
@@ -160,6 +160,11 @@
 				TargetAttributes = {
 					64D96EA71C48DC2300DD64DB = {
 						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					64D96EC01C48DC2300DD64DB = {
 						CreatedOnToolsVersion = 7.2;
@@ -192,8 +197,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				64D96EBB1C48DC2300DD64DB /* LaunchScreen.storyboard in Resources */,
+				64D96ED11C48FD7100DD64DB /* ViewController.xib in Resources */,
 				64D96EB81C48DC2300DD64DB /* Assets.xcassets in Resources */,
-				64D96EB61C48DC2300DD64DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +241,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		64D96EB41C48DC2300DD64DB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				64D96EB51C48DC2300DD64DB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		64D96EB91C48DC2300DD64DB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -272,6 +269,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Carlos Alvarez Novoa (X5G7PK98A6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -294,6 +292,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "4011c268-450a-4704-8d9e-d8bb5a07cc09";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -400,6 +399,7 @@
 				64D96ECC1C48DC2300DD64DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		64D96ECD1C48DC2300DD64DB /* Build configuration list for PBXNativeTarget "DetectingBeaconTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +408,7 @@
 				64D96ECF1C48DC2300DD64DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
