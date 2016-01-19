@@ -32,7 +32,15 @@
     ViewController *vc = [[ViewController alloc]init];
     self.window.rootViewController = vc;
 
+    
+    [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+    NSLog(@"Register %lu",(unsigned long)notificationSettings.types);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -58,6 +66,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    NSLog(@"locationManager didExitRegion on App Delegate");
     if ([region isKindOfClass:[CLBeaconRegion class]]) {
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.alertBody = @"Leaving coffe zone. May the force be with you!";
@@ -65,5 +74,6 @@
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
 }
+
 
 @end

@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 NSString *nameIdenfier = @"coffe_place";
-
+static int logCounter = 0;
 @import CoreLocation;
 
 @interface ViewController ()<CLLocationManagerDelegate>{
@@ -36,32 +36,40 @@ NSString *nameIdenfier = @"coffe_place";
         [_locationManager requestAlwaysAuthorization];
     }
 
+    for (CLBeaconRegion *region in _locationManager.monitoredRegions) {
+        _lblCurrentlyMonitoring.text = [NSString stringWithFormat:@"%@%@ ",_lblCurrentlyMonitoring.text,region.identifier];
+        if([region.identifier isEqualToString:nameIdenfier]){
+            //_btnStartStopMonitoring.selected = YES;
+        }
+    }
+    
 }
 
 - (void)startMonitoringARegion{
-
-    [_locationManager startMonitoringForRegion:[self beaconRegion]];
-    
+    if([CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]){
+        [_locationManager startMonitoringForRegion:[self beaconRegion]];
+        //[_locationManager startRangingBeaconsInRegion:[self beaconRegion]];
+    }else{
+        NSLog(@"Monitoring not available!");
+    }
 }
 
 
 - (void) stopMonitoringARegion{
     [_locationManager stopMonitoringForRegion:[self beaconRegion]];
+    //[_locationManager stopRangingBeaconsInRegion:[self beaconRegion]];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 - (CLBeaconRegion*) beaconRegion{
-    NSUUID *uuid = [[NSUUID alloc]initWithUUIDString:@"5dc33487f02e477d40580117c5532d50"];
-    CLBeaconMajorValue major = 0x4fac;
-    CLBeaconMinorValue minor = 0xa879;
-
-    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                           major:major
-                                                                           minor:minor
-                                                                      identifier:nameIdenfier];
-
+    NSUUID *uuid = [[NSUUID alloc]initWithUUIDString:@"23A01AF0-232A-4518-9C0E-323FB773F5EF"];
+    CLBeaconMajorValue major = 41060;
+    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc]initWithProximityUUID:uuid major:major identifier:nameIdenfier];
+    beaconRegion.notifyOnEntry=YES;
+    beaconRegion.notifyOnExit=YES;
+    
     return beaconRegion;
 }
 
@@ -71,6 +79,7 @@ NSString *nameIdenfier = @"coffe_place";
         [self startMonitoringARegion];
     else
         [self stopMonitoringARegion];
+    
     
 }
 
@@ -92,4 +101,30 @@ NSString *nameIdenfier = @"coffe_place";
     NSLog(@"locationManager didRangeBeacons %@ on Region %@",beacons,region);
 }
 
+- (void) locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region{
+    NSLog(@"locationManager didStartMonitoringForRegion region %@",region);
+
+}
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
+    _lblLogMonitoring.text = [NSString stringWithFormat:@"%@%@%d - locationManager didEnterRegion region %@\n",_lblLogMonitoring.text,[self todayFormatted],logCounter++,region.identifier];
+}
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region{
+    _lblLogMonitoring.text = [NSString stringWithFormat:@"%@%@%d - locationManager didExitRegion region %@\n",_lblLogMonitoring.text,[self todayFormatted],logCounter++,region.identifier];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    if (![CLLocationManager locationServicesEnabled]) {
+        NSLog(@"Couldn't turn on ranging: Location services are not enabled.");
+    }
+    
+    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways) {
+        NSLog(@"Couldn't turn on monitoring: Location services not authorised.");
+    }
+}
+
+- (NSString*)todayFormatted{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"HH:mm:ss"];
+    return [formatter stringFromDate:[NSDate date]];
+}
 @end
