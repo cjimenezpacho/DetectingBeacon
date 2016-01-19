@@ -13,9 +13,11 @@
     __weak IBOutlet UITextView *_lblLogMonitoring;
     __weak IBOutlet UILabel *_lblCurrentlyMonitoring;
     __weak IBOutlet UIButton *_btnStartStopMonitoring;
+    __weak IBOutlet UILabel *_lblProximity;
 }
 
 - (IBAction)startMonitoring:(id)sender;
+- (IBAction)startRanging:(id)sender;
 
 @end
 

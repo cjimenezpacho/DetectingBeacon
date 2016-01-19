@@ -65,6 +65,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void) locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
+    NSLog(@"locationManager didEnterRegion on App Delegate");
+    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"Enjoy your coffe!";
+        notification.soundName = @"Default";
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
+}
+
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
     NSLog(@"locationManager didExitRegion on App Delegate");
     if ([region isKindOfClass:[CLBeaconRegion class]]) {

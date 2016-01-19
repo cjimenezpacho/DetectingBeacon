@@ -10,6 +10,7 @@
                 <outlet property="_btnStartStopMonitoring" destination="6Wl-SY-RG0" id="fTK-pQ-ZAZ"/>
                 <outlet property="_lblCurrentlyMonitoring" destination="8tD-B2-bKa" id="0nD-vR-u1z"/>
                 <outlet property="_lblLogMonitoring" destination="PwS-pa-O9g" id="cAm-q4-8Wb"/>
+                <outlet property="_lblProximity" destination="dTE-W3-KmM" id="MZk-VS-MGe"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cIi-oL-PId"/>
             </connections>
         </placeholder>
@@ -19,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PwS-pa-O9g">
-                    <rect key="frame" x="20" y="197" width="280" height="283"/>
+                    <rect key="frame" x="20" y="237" width="280" height="243"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -65,25 +66,56 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <state key="normal" title="Start Monitoring coffe zone">
+                    <state key="normal" title="Start Monitoring 166">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <state key="selected" title="Stop Monitoring coffe zone"/>
+                    <state key="selected" title="Stop Monitoring 166"/>
                     <connections>
                         <action selector="startMonitoring:" destination="-1" eventType="touchUpInside" id="7dT-Mt-t0u"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uga-93-EsV">
+                    <rect key="frame" x="71" y="171" width="125" height="29"/>
+                    <color key="backgroundColor" red="0.73140716210000001" green="1" blue="0.40286295480000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="8G2-UM-89u"/>
+                        <constraint firstAttribute="width" constant="125" id="Dda-7p-P2o"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Start Ranging 166">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected" title="Stop Ranging 166"/>
+                    <connections>
+                        <action selector="startRanging:" destination="-1" eventType="touchUpInside" id="caS-IR-uCP"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-66 db" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTE-W3-KmM">
+                    <rect key="frame" x="201" y="178" width="48" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="e9n-PR-Cnm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="PwS-pa-O9g" secondAttribute="trailing" constant="20" id="58Q-kz-q6u"/>
-                <constraint firstItem="PwS-pa-O9g" firstAttribute="top" secondItem="6Wl-SY-RG0" secondAttribute="bottom" constant="46" id="G5H-bj-wnH"/>
+                <constraint firstItem="Uga-93-EsV" firstAttribute="top" secondItem="6Wl-SY-RG0" secondAttribute="bottom" constant="20" id="Fuy-gd-PcJ"/>
+                <constraint firstItem="dTE-W3-KmM" firstAttribute="baseline" secondItem="Uga-93-EsV" secondAttribute="baseline" id="GS5-Lu-jJz"/>
                 <constraint firstItem="vp4-Lv-UfH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kt4-7w-bxo"/>
+                <constraint firstAttribute="trailing" secondItem="dTE-W3-KmM" secondAttribute="trailing" constant="71" id="T8G-sU-KXC"/>
                 <constraint firstAttribute="trailing" secondItem="6Wl-SY-RG0" secondAttribute="trailing" constant="71" id="WNi-z0-DrR"/>
                 <constraint firstAttribute="bottom" secondItem="PwS-pa-O9g" secondAttribute="bottom" id="Yeq-F1-sGq"/>
                 <constraint firstItem="6Wl-SY-RG0" firstAttribute="top" secondItem="vp4-Lv-UfH" secondAttribute="bottom" constant="22" id="ZPj-hI-Ypc"/>
                 <constraint firstItem="vp4-Lv-UfH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="e8P-p3-XoF"/>
+                <constraint firstItem="Uga-93-EsV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="71" id="jiv-gM-GWo"/>
+                <constraint firstItem="PwS-pa-O9g" firstAttribute="top" secondItem="Uga-93-EsV" secondAttribute="bottom" constant="37" id="nTZ-hn-uAi"/>
                 <constraint firstItem="6Wl-SY-RG0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="71" id="qXO-I7-ucc"/>
+                <constraint firstItem="dTE-W3-KmM" firstAttribute="leading" secondItem="Uga-93-EsV" secondAttribute="trailing" constant="5" id="w4j-2v-MXc"/>
                 <constraint firstAttribute="trailing" secondItem="vp4-Lv-UfH" secondAttribute="trailing" id="won-Id-WD1"/>
                 <constraint firstItem="PwS-pa-O9g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="zOj-qn-42X"/>
             </constraints>
