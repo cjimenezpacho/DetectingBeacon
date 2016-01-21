@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-NSString *nameIdenfier = @"parkingdoor_beacon";
+NSString *nameIdenfier = @"region_beacon";
 static int logCounter = 0;
 @import CoreLocation;
 
@@ -72,12 +72,13 @@ static int logCounter = 0;
 }
 
 - (CLBeaconRegion*) beaconRegion{
-    //NSUUID *uuid = [[NSUUID alloc]initWithUUIDString:@"23A01AF0-232A-4518-9C0E-323FB773F5EF"];
-    //NSUUID *uuid = [[NSUUID alloc]initWithUUIDString:@"9E17930B-20CC-4FB9-FA17-BF2CF8BBD0DB"];
-    NSUUID *uuid = [[NSUUID alloc]initWithUUIDString:@"00000000-0000-0000-0000-000000000000"];
+    NSUUID *uuid = [[NSUUID alloc]initWithUUIDString:@"23A01AF0-232A-4518-9C0E-323FB773F5EF"];
+    //NSUUID *uuid = [[NSUUID alloc]initWithUUIDString:@"00000000-0000-0000-0000-000000000000"];
     
-    CLBeaconMajorValue major = 0x0100;
-    CLBeaconMinorValue minor = 0x00A6;
+    //CLBeaconMajorValue major = 0x0100;
+    //CLBeaconMinorValue minor = 0x00A6;
+    CLBeaconMajorValue major = 0x4FAC;
+    CLBeaconMinorValue minor = 0xA879;
     CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc]initWithProximityUUID:uuid major:major minor:minor identifier:nameIdenfier];
     beaconRegion.notifyOnEntry=YES;
     beaconRegion.notifyOnExit=YES;

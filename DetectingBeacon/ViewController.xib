@@ -91,9 +91,10 @@
                         <action selector="startRanging:" destination="-1" eventType="touchUpInside" id="caS-IR-uCP"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-66 db" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTE-W3-KmM">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTE-W3-KmM">
                     <rect key="frame" x="201" y="178" width="48" height="15"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="15" id="DoL-zQ-DXE"/>
                         <constraint firstAttribute="width" constant="48" id="e9n-PR-Cnm"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
